@@ -36,18 +36,18 @@ OBJECTS = $(addprefix $(O_DIR)/,$(SRCS:.c=.o))
 
 MLX_LIB_OBJ = -I/usr/include -Imlx
 
-MLX_LIB = -Lmlx -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX_LIB = -Lmlx_linux -lmlx_Linux -lXext -lX11 -lm -lz
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(HEADER_DIR)/$(HEADER) libft
+$(NAME): $(OBJECTS) $(HEADER_DIR)/$(HEADER) libft mlx
 	$(CC) -o $(NAME) $(OBJECTS) -I $(HEADER_DIR) -L $(LIBFT_DIR) -lft $(MLX_LIB) -no-pie
 
 $(O_DIR)/%.o: $(S_DIR)/%.c
 	@mkdir -p $(O_DIR)
 	$(CC) $(TEST_FLAGS) -I$(HEADER_DIR) -I$(LIBFT_DIR) $(MLX_LIB_OBJ) -o $@ -c $<
 
-test: $(OBJECTS) $(HEADER_DIR)/$(HEADER) libft
+test: $(OBJECTS) $(HEADER_DIR)/$(HEADER) libft mlx
 	$(CC) $(TEST_FLAGS) -o $(NAME) $(OBJECTS) -I $(HEADER_DIR) -L $(LIBFT_DIR) -lft $(MLX_LIB) -no-pie
 
 gdb: test
@@ -56,15 +56,20 @@ gdb: test
 
 libft:
 	$(MAKE) -C $(LIBFT_DIR)
+	
+mlx:
+	$(MAKE) -C mlx_linux
 
 clean:
 	rm -rf $(O_DIR)
 	make clean -C $(LIBFT_DIR)
+	make clean -C mlx_linux
 
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C $(LIBFT_DIR)
+	make clean -C mlx_linux
 
 re: fclean all
 
-.PHONY: libft all clean fclean
+.PHONY: mlx libft all clean fclean

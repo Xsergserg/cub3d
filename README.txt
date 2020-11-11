@@ -8,6 +8,7 @@ for Linux
 
 *NOTE:
 Running may requests install side apps, for example X11, Xext etc.
+For Linux installation: sudo apt install xorg libxext-dev zlib1g-dev libbsd-dev 
 
 To run:
 make
