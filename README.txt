@@ -5,9 +5,6 @@ Project using only standart library functions (write, read, exit, free, malloc, 
 for MacOS: using MetalApi (don't support virtual machines)
 for Linux
 
-Requirements for Linux:
-sudo apt install gcc make xorg libxext-dev libbsd-dev 
-
 *NOTE:
 Running may requests install side apps, for example X11, Xext etc.
 For Linux installation: sudo apt install xorg libxext-dev zlib1g-dev libbsd-dev 
