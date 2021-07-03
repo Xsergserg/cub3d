@@ -20,7 +20,7 @@
 # include <math.h>
 # include "get_next_line.h"
 # include "../libft/libft.h"
-# include "../mlx/mlx.h"
+# include "mlx.h"
 
 typedef struct {
 	char	bftype[2];

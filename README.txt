@@ -5,6 +5,10 @@ Project using only standart library functions (write, read, exit, free, malloc, 
 for MacOS: using MetalApi (don't support virtual machines)
 for Linux
 
+Requirements for Linux:
+sudo apt install gcc make xorg libxext-dev libbsd-dev 
+./cub3d_lin/mlx_linux/configure
+make
 
 *NOTE:
 Running may requests install side apps, for example X11, Xext etc.
