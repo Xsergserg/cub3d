@@ -7,8 +7,6 @@ for Linux
 
 Requirements for Linux:
 sudo apt install gcc make xorg libxext-dev libbsd-dev 
-./cub3d_lin/mlx_linux/configure
-make
 
 *NOTE:
 Running may requests install side apps, for example X11, Xext etc.
